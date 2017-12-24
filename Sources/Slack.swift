@@ -233,22 +233,6 @@ public class SwiftBeaverSlack: BaseDestination {
                self.sendingInProgress = false
                self.points = 0
             })
-            
-            
-            //
-            //            if let str = jsonStringFromDict(payload) {
-            //               //toNSLog(str)  // uncomment to see full payload
-            //               toNSLog("Encrypting \(lines) log entries ...")
-            //               sendToServerAsync(str) { ok, _ in
-            //
-            //                  self.toNSLog("Sent \(lines) encrypted log entries to server, received ok: \(ok)")
-            //                  if ok {
-            //                     _ = self.deleteFile(self.sendingFileURL)
-            //                  }
-            //                  self.sendingInProgress = false
-            //                  self.points = 0
-            //               }
-            //            }
          } else {
             sendingInProgress = false
          }
@@ -269,8 +253,6 @@ public class SwiftBeaverSlack: BaseDestination {
          analyticsDict[key] = deviceDetailsDict[key]
       }
       
-      var ok = true
-      let semaphore = DispatchSemaphore.init(value: 0)
       for i in 0...str.count / 20 {
          let begin = i * 20
          let end = begin + 19 >= str.count ? str.count - 1 : begin + 19
@@ -335,20 +317,74 @@ public class SwiftBeaverSlack: BaseDestination {
                      // all went well, entries were uploaded to server
                   } else {
                      // status code was not 200
-                     ok = false
                      var msg = "Error! Sending entries to server failed "
                      msg += "with status code \(response.statusCode)"
                      self.toNSLog(msg)
                   }
                }
             }
-            semaphore.signal()
          }
          task.resume()
          session.finishTasksAndInvalidate()
-         semaphore.wait()
       }
-      complete(ok, 0)
+      complete(true, 0)
+      
+      //
+      //      if let payload = str, let queue = self.queue {
+      //
+      //         // create operation queue which uses current serial queue of destination
+      //         let operationQueue = OperationQueue()
+      //         operationQueue.underlyingQueue = queue
+      //
+      //         let session = URLSession(configuration:
+      //            URLSessionConfiguration.default,
+      //                                  delegate: nil, delegateQueue: operationQueue)
+      //
+      //         toNSLog("assembling request ...")
+      //
+      //         // assemble request
+      //         var request = URLRequest(url: URL.init(string: slackWebHook)!,
+      //                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+      //                                  timeoutInterval: timeout)
+      //         request.httpMethod = "POST"
+      //         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+      //         request.addValue("application/json", forHTTPHeaderField: "Accept")
+      //
+      //         // POST parameters
+      //         request.httpBody = payload.data(using: .utf8)  ?? Data()
+      //         toNSLog("sending ...")
+      //
+      //         sendingInProgress = true
+      //
+      //         // send request async to server on destination queue
+      //         let task = session.dataTask(with: request) { _, response, error in
+      //            var ok = false
+      //            var status = 0
+      //            self.toNSLog("received response from server")
+      //
+      //            if let error = error {
+      //               // an error did occur
+      //               self.toNSLog("Error! Could not send entries to server. \(error)")
+      //            } else {
+      //               if let response = response as? HTTPURLResponse {
+      //                  status = response.statusCode
+      //                  if status == 200 {
+      //                     // all went well, entries were uploaded to server
+      //                     ok = true
+      //                  } else {
+      //                     // status code was not 200
+      //                     var msg = "Error! Sending entries to server failed "
+      //                     msg += "with status code \(status)"
+      //                     self.toNSLog(msg)
+      //                  }
+      //               }
+      //            }
+      //            return complete(ok, status)
+      //         }
+      //         task.resume()
+      //         session.finishTasksAndInvalidate()
+      //         //while true {} // commenting this line causes a crash on Linux unit tests?!?
+      //      }
    }
    
    /// returns sending points based on level
@@ -618,5 +654,4 @@ public class SwiftBeaverSlack: BaseDestination {
       #endif
    }
 }
-
 
