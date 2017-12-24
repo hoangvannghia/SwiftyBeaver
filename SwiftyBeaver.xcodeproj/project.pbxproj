@@ -57,6 +57,11 @@
 		CB52340B1EB0EB4600739CFB /* GoogleCloudDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5234031EB0EB4600739CFB /* GoogleCloudDestination.swift */; };
 		CB52340C1EB0EB4600739CFB /* SBPlatformDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5234041EB0EB4600739CFB /* SBPlatformDestination.swift */; };
 		CB52340D1EB0EB4600739CFB /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5234051EB0EB4600739CFB /* SwiftyBeaver.swift */; };
+		D5271BAD1FEFC6440098586C /* Slack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5271BAC1FEFC6440098586C /* Slack.swift */; };
+		D5271BAE1FEFC6440098586C /* Slack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5271BAC1FEFC6440098586C /* Slack.swift */; };
+		D5271BAF1FEFC6440098586C /* Slack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5271BAC1FEFC6440098586C /* Slack.swift */; };
+		D5271BB01FEFC6440098586C /* Slack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5271BAC1FEFC6440098586C /* Slack.swift */; };
+		D5271BB11FEFC6440098586C /* Slack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5271BAC1FEFC6440098586C /* Slack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +109,7 @@
 		CB5234031EB0EB4600739CFB /* GoogleCloudDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCloudDestination.swift; sourceTree = "<group>"; };
 		CB5234041EB0EB4600739CFB /* SBPlatformDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBPlatformDestination.swift; sourceTree = "<group>"; };
 		CB5234051EB0EB4600739CFB /* SwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
+		D5271BAC1FEFC6440098586C /* Slack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,7 @@
 				CB5234051EB0EB4600739CFB /* SwiftyBeaver.swift */,
 				4D331ADE1F1E8E1100B1C25E /* Base64.swift */,
 				9E8F38B51FE12E9800BE9A80 /* Extensions.swift */,
+				D5271BAC1FEFC6440098586C /* Slack.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -440,6 +447,7 @@
 				CB5234071EB0EB4600739CFB /* BaseDestination.swift in Sources */,
 				CB5234061EB0EB4600739CFB /* AES256CBC.swift in Sources */,
 				CB52340C1EB0EB4600739CFB /* SBPlatformDestination.swift in Sources */,
+				D5271BAD1FEFC6440098586C /* Slack.swift in Sources */,
 				CB52340D1EB0EB4600739CFB /* SwiftyBeaver.swift in Sources */,
 				4D331AE01F1E8EA700B1C25E /* Base64.swift in Sources */,
 				9E8F38B61FE12E9800BE9A80 /* Extensions.swift in Sources */,
@@ -456,6 +464,7 @@
 			files = (
 				9E2AEAD61D9BB46300F21B1F /* SBPlatformDestinationTests.swift in Sources */,
 				9E2AEAD51D9BB46300F21B1F /* FilterTests.swift in Sources */,
+				D5271BAE1FEFC6440098586C /* Slack.swift in Sources */,
 				9E2AEAD31D9BB46300F21B1F /* DestinationSetTests.swift in Sources */,
 				9E2AEAD81D9BB46300F21B1F /* SecretsExample.swift in Sources */,
 				9E2AEAD11D9BB46300F21B1F /* AES256CBCTests.swift in Sources */,
@@ -473,6 +482,7 @@
 				CB0FC30E1EB8ABA00094E03A /* SwiftyBeaver.swift in Sources */,
 				CB0FC3091EB8ABA00094E03A /* ConsoleDestination.swift in Sources */,
 				CB0FC30C1EB8ABA00094E03A /* GoogleCloudDestination.swift in Sources */,
+				D5271BAF1FEFC6440098586C /* Slack.swift in Sources */,
 				CB0FC30B1EB8ABA00094E03A /* Filter.swift in Sources */,
 				4D331AE21F1E8EAC00B1C25E /* Base64.swift in Sources */,
 				9E8F38B81FE12E9800BE9A80 /* Extensions.swift in Sources */,
@@ -490,6 +500,7 @@
 				CB0FC3161EB8ABA10094E03A /* SwiftyBeaver.swift in Sources */,
 				CB0FC3111EB8ABA10094E03A /* ConsoleDestination.swift in Sources */,
 				CB0FC3141EB8ABA10094E03A /* GoogleCloudDestination.swift in Sources */,
+				D5271BB01FEFC6440098586C /* Slack.swift in Sources */,
 				CB0FC3131EB8ABA10094E03A /* Filter.swift in Sources */,
 				4D331AE11F1E8EAB00B1C25E /* Base64.swift in Sources */,
 				9E8F38B91FE12E9800BE9A80 /* Extensions.swift in Sources */,
@@ -507,6 +518,7 @@
 				CB0FC31E1EB8ABA10094E03A /* SwiftyBeaver.swift in Sources */,
 				CB0FC3191EB8ABA10094E03A /* ConsoleDestination.swift in Sources */,
 				CB0FC31C1EB8ABA10094E03A /* GoogleCloudDestination.swift in Sources */,
+				D5271BB11FEFC6440098586C /* Slack.swift in Sources */,
 				CB0FC31B1EB8ABA10094E03A /* Filter.swift in Sources */,
 				4D331ADF1F1E8E1100B1C25E /* Base64.swift in Sources */,
 				9E8F38BA1FE12E9800BE9A80 /* Extensions.swift in Sources */,
